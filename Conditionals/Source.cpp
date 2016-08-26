@@ -23,77 +23,145 @@ int main()
 	}
 
 	//3 okay.... have Austin help my figure this out
-	int num1;
-	int num2;
-	int num3;
+	// First we will declare our variables as intergers //
+	int num1, num2, num3;
 
+	// Then let the user put in the numbers for those intergers //
 	std::cin >> num1;
 	std::cin >> num2;
 	std::cin >> num3;
+
+	// Add them up to decide what to do next //
 	int sum = num1 + num2 + num3;
-	
-	if (sum  > 0)
+	// And put all those numbers into an array //
+	int numbers[3] = { num1,num2,num3 };
+	// Determine the size of the array //
+	int sozeOfNums = sizeof(numbers) / 4;
+	// Make a flag to control the flow of my sorting method //
+	bool homestuck = true;
+	// And a temporary variable for swaping numbers in the array //
+	int temp;
+
+	// If the sum is greater than zero we will sort in decending order //
+	if (sum > 0)
 	{
-		std::cout << num1 << num2 << num3 << std::endl; //now how do I make this print in descending order?
+		// We start sorting here using a for loop that only keeps going //
+		//for as long as the size of the array OR untill it has no more to sort //
+		for (int j = 0; (j < sozeOfNums) && homestuck; j++)
+		{
+			// We set this to false because if nothing needs to be sorted we don't need to loop again //
+			homestuck = false;
+			// Now we start to compare all the numbers in the array to the ones next to each other //
+			for (int a = 0; a < (sozeOfNums - 1); a++)
+			{
+				// In this case if index 2 is greater than index 1..... //
+				if (numbers[a + 1] > numbers[a])
+				{
+					// ...We set the temporary variable equal to the current index... //
+					temp = numbers[a];
+					// ...Set the current index equal to the next index... //
+					numbers[a] = numbers[a + 1];
+					// ...And set the next index equal to the tenporary variable. //
+					numbers[a + 1] = temp;
+					// And because we had to swap numbers we may need to loop again, so set this to true. //
+					homestuck = true;
+				}
+			}
+		}
 	}
-	else if(sum < 0)
+
+	// If the sum is less than zero then we will sort in accending order //
+	if (sum < 0)
 	{
-		std::cout << num1 << num2 << num3 << std::endl;
+		for (int j = 0; (j < sozeOfNums) && homestuck; j++)
+		{
+			homestuck = false;
+			for (int a = 0; a < (sozeOfNums - 1); a++)
+			{
+				if (numbers[a + 1] < numbers[a])
+				{
+					temp = numbers[a];
+					numbers[a] = numbers[a + 1];
+					numbers[a + 1] = temp;
+					homestuck = true;
+				}
+			}
+		}
 	}
-	else
+
+	// This will loop through the array and print to the console all the contents of said array //
+	for (int i = 0; i < sozeOfNums; i++)
 	{
-		std::cout << num1 << num2 << num3 << std::endl; //I think this one is correct. I need to fix the 'if' and 'else if' conditionals before checking
+		std::cout << numbers[i] << std::endl;
 	}
 
 	//4
-	int choice = (1); //it told me that 'choice' for the if statement was undefined, so i gave the 'int choice =(1)' as a means of maybe defining it? it is still wrong, so how do I define 'choice' in the if statement?
-	//after further recollection of the previous comment, maybe i need a std::cin>> statement? i know it is uspposed to have some sort of user input
-	if (choice == 1) 
-	{
-		std::cout << "1";
-	}
-	else if (choice == 2 || choice == 3)
-	{
-		std::cout << "4";
-	}
-	else
-	{
-		std::cout << "Invalid";
-	}
-
-	// the above code will be deleted once the switch statement is correct
-	
-	switch (choice = 1);
-		case 0:
-		{
-			std::cout << "1";
-			break;
-
-		case 1:
-
-			std::cout << "4" std::endl;
-			break;
-
-		case 2:
-
-			std::cout << "Invalid";
-		}
+	int choice;									//i first have to name the switch statement, or so i think. here it is "choice"
+	std::cout << "pick a number between 1 and 4" << std::endl;
+	std::cin >> choice;
+	switch (choice)	
+	{											//switch statements are held in one set of '{}'
+	case 1:										//be sure to begin with case 0 and not skip to number 1... i have a habit of forgetting 0
+		std::cout << "1" << std::endl;
+		break;									//each case statement MUST end with a 'break;'
+	case 2:
+		std::cout << "2 or 3" << std::endl;
+		break;
+	case 3:
+		std::cout << "2 or 3" << std::endl;
+		break;
+	case 4:
+		std::cout << "4" << std::endl;
+		break;
+	default:									//'default' is the same as an 'else' statement. it says what to do if all case statements return false
+		std::cout << "Invalid" << std::endl;
+		break;
+	}											//and now I think it is correct.
 	//holy shit why are switch statements so complicated? what do they even do? why??????? there is literally no point in using them (that i am currently aware of.) I don't know.... maybe Austin could help me understand this too.
+	//edit: I think I have a small understanding of switch statements, now to practice and comit to memory
 
 	//5
-		if (x == 0)
-		{
-			y = 0;
+	int numA;
+	int numB;
+	char operation;
+	std::cout << "Please provide me with the following:" << std::endl;				//this line runs properly
+	std::cout << "Give me a number." << std::endl;									//this line runs properly
+	std::cin >> numA;																//this line runs properly
+	std::cout << "And now give me a mathematical operation." << std::endl;			//this line runs properly
+	std::cin >> operation;															//this line runs properly
+	std::cout << "And finally, give me another number." << std::endl;				//i think this line is running properly
+	std::cin >> numB;																//and here is where the code breaks i believe... what went wrong and what can i safely change without risk of breaking my code further?
+	std::cout << "now sit back. I have the rest taken care of." << std::endl;
+
+
+	//matt said to try a switch statement... i could use the practice anyhow
+	switch (operation)													//so i give the switch statement int 'operation' to work with
+	{
+	case '+':															//god was this annoying. the '' around the +... it took me forever to think about.  i have a program that runs, but not correctly. that might be breaking my program.
+		std::cout << numA << '+' << numB << '=';							//fairly simple. if user puts a + for the variable 'operation' then the values for numA and numB will be summed up for the answer.
+		std::cout << numA + numB << std::endl;
+		break;															//gotta remember those breaks
+	case '-':															//the same thought process follows for the rest of the case statements.
+		std::cout << numA << '-' << numB << '=';
+		std::cout << numA - numB << std::endl;
+		break;
+	case '/':
+		std::cout << numA << '/' << numB << '=';
+		std::cout << numA / numB << std::endl;								//under Mr. Matt's suggestion I am applying the cout functions to print out the actual user input in "numA (operation) numB"
+		break;															//it isn't working... i'll do more testing before asking for help.
+	case '*':
+		std::cout << numA << '*' << numB << '=';
+		std::cout << numA * numB << std::endl;
+		break;
+	case '%':
+		std::cout << numA << '%' << numB << '=';
+		std::cout << numA % numB << std::endl;
+		break;
+	default:																	//default, remember that. it is the same as the 'else' in an if statement
+		std::cout << "Error Invalid mathematical operation." << std::endl;		//not sure if this is required, but if i can get it all to run properly then this will help me deduce if everything is running properly
+		break;
 	}
-		else
-		{
-			y = 10 / x;
-		}
-	//the above code will be deleted after it is translated into a ternary operator
-		int x = 10;
-		int y = 1;
-//so i think the 'x' and 'y' need to be defined, i just don't know what values to assign them, or if that value matters at all. for now I am assigning 'x' and 'y' random values.
-		x = (5) ? 0 : 2;
+
 //okay, so if my thought process is correct (it isn't) then I pretty much add user input into the '()' and the '0 : 2;' pretty much was a bool statement? if it was true, it would evaluate out to 0, and if false out to 2, if I am not mistaken. 
 //I can not run this code to check it until I fix parts 3 and 4.....
 
