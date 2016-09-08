@@ -110,6 +110,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Arrays.cpp" />
     <ClCompile Include="Examples\Examples\Variable_Exercise.cpp" />
     <ClCompile Include="Hello World.cpp" />
     <ClCompile Include="Variable\TEST\Example.cpp" />
