@@ -111,8 +111,11 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Arrays.cpp" />
+    <ClCompile Include="Classes.cpp" />
+    <ClCompile Include="Constants and Typedef.cpp" />
     <ClCompile Include="Examples\Examples\Variable_Exercise.cpp" />
     <ClCompile Include="Hello World.cpp" />
+    <ClCompile Include="Reference.cpp" />
     <ClCompile Include="Variable\TEST\Example.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

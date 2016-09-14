@@ -3,7 +3,9 @@ int main()
 {
 	//Exercise 1
 	//int numbers[10] = { 0, 0, 1, 0, 0, 1, 0, 0, 1, 1 }; VALID
-	//int matrix[5] = { 1, 2, 3, 4, 5, 6, 7 }; INVALID (there are  too many values in the array)	//double radii[10] = (3.2, 4.7}; INVALID (there are not enough values in the array)	//int table[7] = { 2, , , 27, , 45, 39 }; INVALID
+	//int matrix[5] = { 1, 2, 3, 4, 5, 6, 7 }; INVALID (there are  too many values in the array)
+	//double radii[10] = (3.2, 4.7}; INVALID (there are not enough values in the array)
+	//int table[7] = { 2, , , 27, , 45, 39 }; INVALID
 	//char codes[] = { 'A', 'X', '1', '2', 's' } INVALID (the array size is undefined)
 	//int blanks[]; INVALID (there is no array size/elements)
 	//int collection[-20]; INVALID (there can not be an array with a negative amount of elements)
